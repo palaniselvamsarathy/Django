@@ -17,10 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from UserApp import views
+# from staticfiles import views
 
 urlpatterns = [
-    path("", views.getindexpage),
-    path("service/", views.getservicepage),
-    path("about/", views.getaboutpage),
-    path("login", views.getloginpage),
+    path('index/',views.getindex),
+    path('about/',views.getabout),
+    path('contact/',views.getcontact)
 ]
