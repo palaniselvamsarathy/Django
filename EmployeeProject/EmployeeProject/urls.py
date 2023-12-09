@@ -7,5 +7,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("",views.gethomepage),
     path("add/",views.getempreqpage,name="reg"),
-    path("success/",views.getsuccesspage,name="saveemp")
+    path("success/",views.getsuccesspage,name="saveemp"),
+    path("user/", views.getuserreqpage, name="use"),
+    path("saveuser/", views.getuserpage,name="saveuser")
 ]
