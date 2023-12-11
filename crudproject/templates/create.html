@@ -9,20 +9,20 @@
     <h1>Creating Data</h1>
     <form action="/create/" method="post">
         {% csrf_token %}
-        <div>
-            <label for="">ID:</label>
+        <div class="form-group">
+            <label for="">ID</label>
             {{empform.eid}}
         </div>
-        <div>
-            <label for="">Name:</label>
+        <div class="form-group">
+            <label for="">Name</label>
             {{empform.ename}}
         </div>
-        <div>
-            <label for="">Salary:</label>
+        <div class="form-group">
+            <label for="">Salary</label>
             {{empform.esal}}
         </div>
-        <div>
-            <label for="">Email:</label>
+        <div class="form-group">
+            <label for="">Email</label>
             {{empform.email}}
         </div>
         <input type="submit" value="Create"/>

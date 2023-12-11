@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
     <h1>This is Displaying Data</h1>
-    <table border="2">
+    <table border="2" class="table">
         <thead>
             <tr>
                 <th>ID</th>
@@ -27,8 +28,8 @@
                     <td>{{emp.esal}}</td>
                     <td>{{emp.email}}</td>
                     <td>
-                        <button>Update</button>
-                        <button href="/delete/{{emp.eid}}" >Delete</button>
+                        <a href="/update/{{emp.id}}"><button>Update</button></a>
+                        <a href="/delete/{{emp.id}}"><button>Delete</button></a>
                     </td>
                 </tr>
             {% endfor %}
