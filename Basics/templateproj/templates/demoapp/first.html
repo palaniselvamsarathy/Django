@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+    {%load static%}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>First Template</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
 </head>
 <body>
     <h1>It is first Template Example</h1>
@@ -11,5 +13,7 @@
     {{emp_name}}
     {{age}} 
     {{greetings}}
+
+    <img src="{%static 'images/loki.jpg'%}" alt="Loki">
 </body>
 </html>
