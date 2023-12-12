@@ -27,5 +27,7 @@ def deleteview(request,id):
     empdata.delete()
     return redirect('/read')
 
+def editview(request):
+    pass
 def updateview(request):
     pass
