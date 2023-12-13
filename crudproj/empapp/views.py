@@ -20,8 +20,23 @@ def displaypage(request):
     emp_list = Employee.objects.all()
     return render(request,'display.html',{'emp_list':emp_list})
 
-def editpage(request):
-    pass
+def editpage(request,id):
+    employee = Employee.objects.get(id=id)
+    return render(request, 'update.html',{'employee':employee})
 
-def deletepage(request):
-    pass
+def updatepage(request,id):
+    employee = Employee.objects.get(id=id)
+    if request.method == "POST":
+        empdata = EmployeeForm(request.POST, instance=employee)
+        if empdata.is_valid():
+            try:
+                empdata.save()
+                return redirect('/read')
+            except:
+                pass
+    return render(request,'update.html')
+
+def deletepage(request,id):
+    empdata = Employee.objects.get(id=id)
+    empdata.delete()
+    return redirect('/read')
