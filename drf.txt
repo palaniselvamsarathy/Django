@@ -1,0 +1,131 @@
+What is DRF?
+-> DRF is a powerful and flexible toolkit to develop/ building web API's
+-> To develop wb API use DRF
+
+what is an API?
+-> API - Application Programming Interface
+
+what is REST?
+-> Representation State Transfer
+====> Before drf everyone uses Soap 
+====> They want son=me alternative and light weight API==> They found REST API's
+
+What is Serialization?
+--> COnverting Python Data type (Dict) into JSON
+
+JSON/XML - data exchange format
+what JSON?
+JavaScript Object Notation
+
+JSON ::                 
+            emp = {                        
+                "eid":101,
+                "ename":"Sarathy",
+                "esal":450000,
+                "avail":true
+            }
+
+DICT:: 
+            emp = {
+                'eid:101,
+                'ename':'Sarathy',
+                'esal':450000,
+                'avail':True
+            }
+
+
+Python has 14 datatypes
+JS has 8 datatypes -primitve and non primitive
+
+Table - QuerySet          - Python LIst(dict object)
+Row   - Model INstance    - Python dict
+
+DRF?
+
+---Serializer
+---ViewSet
+---Router
+-------------
+Frontend: React JS
+----------------------------------------------------------
+Pre- requisties:
+1.Python Basics , Django framework
+2.JSON
+3. Post Man/// VS code thunder client/// admin in django (to test API)
+
+====================================================================================
+Step by step process:
+step 1: 
+      django-admin startproject drfproj
+      cd drfproj
+step 2:
+      py manage.py startapp drfapp
+step 3:
+      pip install djangorestframework
+step 4:
+      register your app and restf/w in settings.py
+step 5: 
+      update DB settings
+step 6:
+      py manage.py makemigrations
+      py manage.py migrate
+
+step 7: 
+    create models.py
+step 8:
+register models in admin.py
+
+step 9:
+    create Serializer.py in app level
+
+    from rest_framework import serializers
+    from drfapp.models import Employee
+
+    class EmployeeSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Employee
+            fields = "__all__"
+
+step 10:
+    create views
+
+    from rest_framework.response import Response
+    from rest_framework.decorators import api_view
+    from django.shortcuts import render
+    from drfapp.models import Employee
+    from drfapp.serializers import EmployeeSerializer
+    # Create your views here.
+
+    '''
+        API URL: http://127.0.0.1:8000/
+        Method:GET
+        Required Fields: None
+        ACCESS Type:Public
+    '''
+
+
+    @api_view(['GET'])
+    def home(request):
+        emp_data = Employee.objects.all()
+        emp_serializer = EmployeeSerializer(emp_data, many=True)
+        # print(emp_data)
+        # print(type(emp_data))
+        print(type(emp_serializer.data))
+        print(emp_serializer.data)
+        return Response({'status': 200, 'message': 'Home page Response', 'avail': True, 'payload': emp_serializer.data})
+
+
+    '''
+        API URL: http://127.0.0.1:8000/employees
+        Method:GET
+        Required Fields: None
+        ACCESS Type:Public
+    '''
+
+
+    @api_view(['GET'])
+    def emp_data(request):
+        emp_data = Employee.objects.all()
+        emp_serializer = EmployeeSerializer(emp_data, many=True)
+
+        return Response({'employees': emp_serializer.data})
