@@ -129,3 +129,11 @@ step 10:
         emp_serializer = EmployeeSerializer(emp_data, many=True)
 
         return Response({'employees': emp_serializer.data})
+
+step 10.1:
+--> We have to import Employee model, EmploeeSerializer, 
+---> import response from rest_framework.response
+--> import api_view from rest_framework.decorators
+
+step 11:
+    After Creating views import that in urls.py in project folder
