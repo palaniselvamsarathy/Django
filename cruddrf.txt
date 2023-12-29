@@ -1,0 +1,25 @@
+CRUD using DRF
+
+Create 
+    API URL : 127.0.0.0:8000/api/add
+    Method Type: POST
+    Required Field: eid, ename, esal
+    Access Type: Public
+
+Read
+    API URL : 127.0.0.0:8000/api/
+    Method Type: GEt
+    Required Field: None
+    Access Type: Public
+
+Update 
+    API URL : 127.0.0.0:8000/api/update/1
+    Method Type: POST
+    Required Field: eid, ename, esal
+    Access Type: Public
+
+Delete 
+    API URL : 127.0.0.0:8000/api/delete/1
+    Method Type: DELETE
+    Required Field: Id
+    Access Type: Public
